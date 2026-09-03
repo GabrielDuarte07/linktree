@@ -1,7 +1,32 @@
-function App() {
-	return (
-		<div className="flex w-full h-screen justify-center items-center bg-amber-400"></div>
-	);
-}
+import { createBrowserRouter } from "react-router";
+import { Layout } from "./components/layout";
+import { Admin } from "./pages/admin";
+import { Home } from "./pages/home";
+import { Login } from "./pages/login";
+import { Networks } from "./pages/networks";
 
-export default App;
+const router = createBrowserRouter([
+	{
+		element: <Layout />,
+		children: [
+			{
+				element: <Home />,
+				path: "/",
+			},
+			{
+				element: <Admin />,
+				path: "/admin/social",
+			},
+			{
+				element: <Networks />,
+				path: "/networks",
+			},
+			{
+				element: <Login />,
+				path: "/login",
+			},
+		],
+	},
+]);
+
+export { router };
